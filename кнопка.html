@@ -5,9 +5,65 @@
 </head>
 <body>
 	<h4>Something</h4>
-	<p style="color:green; padding: 64px">
-	<button id="butt"><img src="https://bandlabimages.azureedge.net/v1.0/users/f46a095a-6317-e811-80c3-00155d60d108/636624473355102137/1024x1024" alt="test" style="width: 64px; height: 64px;"></button><br>
+	<p style="color:green; padding: 64px" class="talk">
+	<button id="butt">
+	<i class="over">Overground!</i>
+	<img src="https://bandlabimages.azureedge.net/v1.0/users/f46a095a-6317-e811-80c3-00155d60d108/636624473355102137/1024x1024" alt="test" style="width: 64px; height: 64px;">
+	</button><br>
 	<span id="count">0</span></p>
+	
+	<style>
+	.talk i{
+		display: block;
+		width: 68px;
+		height: 70px;
+		margin: 0 2px;
+		outline: none;
+		position: relative;
+	}
+
+	.talk i{
+		width: 100px;
+		height: auto;
+		ine-height: 20px;
+		adding: 10px;
+		eft: 50%;
+		argin-left: -64px;
+		font-family: 'Alegreya SC', Georgia, serif;
+		font-weight: 400;
+		font-style: italic;
+		font-size: 14px;
+		color: #FF0000;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+		text-align: center;
+		border: 4px solid #A0B;
+		background: rgba(255,255,255,0.3);
+
+		text-indent: 0px;
+		border-radius: 5px;
+		position: absolute;
+		opacity: 0;
+		box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+	}
+	@keyframes vis {
+		0% {
+			opacity: 0;
+		}
+		70% {
+			opacity: 0.1;
+		}
+
+		80% {
+			transition: all 1s ease-in-out;			
+		}
+	}
+
+	.talk i:hover{
+		animation: vis linear 3s 1;
+		opacity: 0.95;
+	}
+	</style>
+	
 	<style>
 		#butt {
 			color: #AF0;
@@ -25,8 +81,9 @@
 		button, 
 		button:active, 
 		button:focus {
-		outline: none;
+			outline: none;
 		}
+
 		#butt:hover {
 			background: #00D;
 			animation:wait linear 1s infinite;
@@ -138,6 +195,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script>
 		var timer;
+		// var menu = 0;
 
 		function counterStart() {
 			
@@ -154,7 +212,10 @@
 				}, 1000);
 			}
 		});
-		
+		$("#butt").mouseup(function () {
+			if (timer)
+				clearInterval(timer);
+		});
 	</script>
 </body>
 </html>
